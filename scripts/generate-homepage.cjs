@@ -59,9 +59,16 @@ if (headerStart === -1 || headerEnd === -1 || footerStart === -1 || footerEnd ==
   throw new Error("Could not find header/footer markers in index.fr.html");
 }
 
-const headerHtml = body
+let headerHtml = body
   .slice(headerStart, headerEnd + headerEndMarker.length)
   .trim();
+
+headerHtml = headerHtml
+  .replace(
+    /<li data-region="([^"]+)"([^>]*)><a href="[^"]+">([^<]+)<\/a><\/li>/g,
+    '<li data-region="$1"$2>$3</li>',
+  )
+  .replace(/href="destination\/mozambique"/g, 'href="/destination/mozambique"');
 
 const beforeHeader = body.slice(0, headerStart).trim();
 const afterHeaderBeforeFooter = body
