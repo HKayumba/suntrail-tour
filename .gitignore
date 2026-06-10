@@ -1,0 +1,5 @@
+.next/
+node_modules/
+dev-server*.log
+next-start*.log
+Suntrail Web 2026/

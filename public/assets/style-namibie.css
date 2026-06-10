@@ -1,0 +1,702 @@
+/* ===================================================================
+   NAMIBIE — page-specific styles
+   Étend style-devis.css — hérite des variables du thème carcamping :
+     --color-primary : #BA6827
+     --color-heading-1: #0D0D0D
+     --font-primary  : "Bebas Neue", sans-serif
+     --font-four     : "Roboto", sans-serif
+=================================================================== */
+
+/* ── Bannière héros (étend .page-title-strip de style-devis.css) ── */
+.page-title-namibie {
+    background-image: url('../images/banner/leopard.webp');
+    background-size: cover;
+    background-position: center top;
+    background-attachment: fixed;
+    padding: 170px 0 120px;
+    background-color: #0D0D0D;
+}
+/* Remplace l'overlay subtil de page-title-strip par un voile sombre */
+.page-title-namibie::after {
+    background: rgba(0, 0, 0, 0.52);
+}
+.page-title-namibie h1 {
+    font-size: clamp(2.4rem, 5vw, 4.4rem);
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    line-height: 1;
+    color: #fff;
+    margin: 8px 0 16px;
+    position: relative;
+    z-index: 1;
+}
+.page-title-namibie .sub {
+    max-width: 590px;
+    font-size: 1.05rem;
+    line-height: 1.65;
+}
+@media (max-width: 576px) {
+    .page-title-namibie {
+        padding: 120px 0 80px;
+        background-attachment: scroll;
+    }
+    .page-title-namibie h1 { font-size: 2.2rem; }
+}
+
+.hero-kicker {
+    color: rgba(255, 255, 255, 0.75);
+    font-family: var(--font-four, "Roboto", sans-serif);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 600;
+    display: block;
+    margin-bottom: 4px;
+    position: relative;
+    z-index: 1;
+}
+
+.hero-cta-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-top: 32px;
+    position: relative;
+    z-index: 1;
+}
+
+.btn-outline-white {
+    display: inline-block;
+    font-size: 0.95rem;
+    padding: 14px 28px;
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, 0.7);
+    color: #fff;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: background 0.3s, border-color 0.3s;
+    font-family: var(--font-four, "Roboto", sans-serif);
+    font-weight: 600;
+    letter-spacing: 0.04em;
+}
+.btn-outline-white:hover {
+    background: rgba(255, 255, 255, 0.14);
+    color: #fff;
+    border-color: rgba(255, 255, 255, 0.9);
+}
+
+/* ── Bandeau de faits pays ──────────────────────────────────────── */
+.facts-strip {
+    background: var(--color-heading-1, #0D0D0D);
+    padding: 36px 0;
+}
+.fact-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 4px;
+}
+.fact-icon {
+    font-size: 1.8rem;
+    color: var(--color-primary, #BA6827);
+    margin-bottom: 8px;
+    display: block;
+}
+.fact-value {
+    font-family: var(--font-primary, "Bebas Neue", sans-serif);
+    font-size: 2rem;
+    color: #fff;
+    line-height: 1;
+    letter-spacing: 0.02em;
+    display: block;
+}
+.fact-label {
+    font-family: var(--font-four, "Roboto", sans-serif);
+    font-size: 0.77rem;
+    color: rgba(255, 255, 255, 0.52);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    display: block;
+}
+
+/* ── Fond teinté pour sections alternées ────────────────────────── */
+.section-tint { background: #f8f5f1; }
+
+/* ── Citation mise en valeur ────────────────────────────────────── */
+.quote-highlight {
+    border-left: 3px solid var(--color-primary, #BA6827);
+    padding: 14px 20px;
+    background: rgba(186, 104, 39, 0.06);
+    border-radius: 0 8px 8px 0;
+    font-family: var(--font-four, "Roboto", sans-serif);
+    font-size: 0.97rem;
+    color: #444;
+    font-style: italic;
+    line-height: 1.7;
+    margin: 20px 0;
+}
+
+/* ── Texte courant ──────────────────────────────────────────────── */
+.body-text {
+    font-family: var(--font-four, "Roboto", sans-serif);
+    color: #555;
+    line-height: 1.75;
+    margin: 0;
+}
+.body-text + .body-text { margin-top: 16px; }
+
+/* ── Cartes de lieux à visiter ──────────────────────────────────── */
+.place-card {
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    aspect-ratio: 4 / 3;
+}
+.place-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+}
+.place-card:hover img { transform: scale(1.06); }
+
+.place-badge {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    background: var(--color-primary, #BA6827);
+    color: #fff;
+    font-family: var(--font-four, "Roboto", sans-serif);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: 50px;
+    z-index: 2;
+}
+.place-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.72) 0%, transparent 55%);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 16px 18px;
+}
+.place-overlay h5 {
+    color: #fff;
+    font-family: var(--font-primary, "Bebas Neue", sans-serif);
+    font-size: 1.3rem;
+    font-weight: 400;
+    margin: 0 0 4px;
+    letter-spacing: 0.02em;
+}
+.place-overlay p {
+    color: rgba(255, 255, 255, 0.8);
+    font-family: var(--font-four, "Roboto", sans-serif);
+    font-size: 0.78rem;
+    margin: 0;
+}
+.place-desc {
+    padding: 16px 4px 0;
+    font-family: var(--font-four, "Roboto", sans-serif);
+    font-size: 0.88rem;
+    color: #555;
+    line-height: 1.6;
+}
+
+/* ── Cartes circuits ────────────────────────────────────────────── */
+.tour-nam-card {
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 16px rgba(0, 0, 0, 0.07);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.tour-nam-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.12);
+}
+.tour-img-wrap {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 4 / 3;
+}
+.tour-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+.tour-nam-card:hover .tour-img-wrap img { transform: scale(1.06); }
+.tour-badge {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: var(--color-primary, #BA6827);
+    color: #fff;
+    font-family: var(--font-four, "Roboto", sans-serif);
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 50px;
+}
+.tour-body {
+    padding: 20px 20px 16px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+.tour-meta {
+    display: flex;
+    gap: 14px;
+    margin-bottom: 10px;
+    font-family: var(--font-four, "Roboto", sans-serif);
+    font-size: 0.78rem;
+    color: #888;
+}
+.tour-meta span i {
+    margin-right: 4px;
+    color: var(--color-primary, #BA6827);
+}
+.tour-body h5 {
+    font-family: var(--font-primary, "Bebas Neue", sans-serif);
+    font-size: 1.2rem;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    color: var(--color-heading-1, #0D0D0D);
+    margin: 0 0 8px;
+}
+.tour-body p {
+    font-family: var(--font-four, "Roboto", sans-serif);
+    font-size: 0.83rem;
+    color: #666;
+    line-height: 1.6;
+    margin: 0;
+    flex: 1;
+}
+.tour-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid #eee;
+}
+.tour-price {
+    font-family: var(--font-four, "Roboto", sans-serif);
+    font-size: 0.78rem;
+    color: #888;
+    line-height: 1.4;
+}
+.tour-price strong {
+    font-size: 1.05rem;
+    color: var(--color-heading-1, #0D0D0D);
+    font-weight: 700;
+    display: block;
+}
+.tour-price span {
+    font-size: 0.73rem;
+    display: block;
+}
+.tour-footer .rts-btn {
+    padding: 8px 16px;
+    font-size: 0.82rem;
+}
+
+/* ── Bandeau CTA avec image de fond ─────────────────────────────── */
+.cta-band {
+    min-height: 320px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+}
+.cta-band-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.55);
+}
+.cta-band-inner {
+    position: relative;
+    z-index: 2;
+    padding: 60px 0;
+    width: 100%;
+}
+.cta-band-kicker {
+    color: rgba(255, 255, 255, 0.8);
+    font-family: var(--font-four, "Roboto", sans-serif);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 600;
+    margin-bottom: 12px;
+    display: block;
+}
+.cta-band-title {
+    color: #fff;
+    font-family: var(--font-primary, "Bebas Neue", sans-serif);
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    font-weight: 400;
+    margin-bottom: 24px;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+}
+.cta-btn-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: center;
+}
+
+/* ── Cartes lodges ──────────────────────────────────────────────── */
+.lodge-card {
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 16px rgba(0, 0, 0, 0.07);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.lodge-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.12);
+}
+.lodge-img-wrap {
+    overflow: hidden;
+    height: 200px;
+}
+.lodge-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+.lodge-card:hover .lodge-img-wrap img { transform: scale(1.06); }
+.lodge-body {
+    padding: 20px 20px 12px;
+    flex: 1;
+}
+.lodge-tag {
+    font-family: var(--font-four, "Roboto", sans-serif);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--color-primary, #BA6827);
+    display: block;
+    margin-bottom: 8px;
+}
+.lodge-body h5 {
+    font-family: var(--font-primary, "Bebas Neue", sans-serif);
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: var(--color-heading-1, #0D0D0D);
+    margin: 0 0 10px;
+    letter-spacing: 0.02em;
+}
+.lodge-body p {
+    font-family: var(--font-four, "Roboto", sans-serif);
+    font-size: 0.83rem;
+    color: #666;
+    line-height: 1.6;
+    margin: 0;
+}
+.lodge-footer {
+    padding: 12px 20px 16px;
+    border-top: 1px solid #eee;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.stars {
+    color: var(--color-primary, #BA6827);
+    font-size: 0.78rem;
+    letter-spacing: 2px;
+}
+.lodge-type {
+    font-family: var(--font-four, "Roboto", sans-serif);
+    font-size: 0.72rem;
+    color: #888;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+/* ── Cartes conditions d'entrée / atouts ────────────────────────── */
+.requirement-card {
+    background: #fff;
+    border-radius: 10px;
+    padding: 28px 24px;
+    box-shadow: 0 2px 16px rgba(0, 0, 0, 0.06);
+    border-top: 3px solid var(--color-primary, #BA6827);
+    height: 100%;
+}
+.requirement-card h5 {
+    font-family: var(--font-primary, "Bebas Neue", sans-serif);
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: var(--color-heading-1, #0D0D0D);
+    margin: 0 0 10px;
+    letter-spacing: 0.02em;
+}
+.requirement-card p {
+    font-family: var(--font-four, "Roboto", sans-serif);
+    font-size: 0.875rem;
+    color: #555;
+    line-height: 1.7;
+    margin: 0;
+}
+.req-icon {
+    font-size: 2rem;
+    color: var(--color-primary, #BA6827);
+    margin-bottom: 16px;
+    display: block;
+}
+.text-center .req-icon { margin-left: auto; margin-right: auto; }
+
+/* ── Carte saison mise en avant ─────────────────────────────────── */
+.season-highlight {
+    border-color: var(--color-primary, #BA6827) !important;
+    box-shadow: 0 4px 24px rgba(186, 104, 39, 0.15) !important;
+}
+.season-note {
+    margin-top: 12px;
+    font-size: 0.82rem;
+    background: rgba(186, 104, 39, 0.1);
+    padding: 8px 12px;
+    border-radius: 6px;
+    color: #666;
+    font-family: var(--font-four, "Roboto", sans-serif);
+}
+.season-note i {
+    color: var(--color-primary, #BA6827);
+    margin-right: 4px;
+}
+
+/* ── Bandeau de données climatiques ─────────────────────────────── */
+.climate-data-strip {
+    background: linear-gradient(135deg, #1a2a1a 0%, #2d4a2d 100%);
+    border-radius: 12px;
+    padding: 28px 32px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    align-items: center;
+    justify-content: space-around;
+    color: #fff;
+    text-align: center;
+    margin-top: 40px;
+}
+.climate-data-item i {
+    font-size: 1.6rem;
+    color: var(--color-primary, #BA6827);
+    margin-bottom: 8px;
+    display: block;
+}
+.climate-data-item strong {
+    font-size: 1.4rem;
+    color: var(--color-primary, #BA6827);
+    display: block;
+    font-family: var(--font-primary, "Bebas Neue", sans-serif);
+    font-weight: 400;
+    letter-spacing: 0.02em;
+}
+.climate-data-item span {
+    font-size: 0.82rem;
+    opacity: 0.8;
+    font-family: var(--font-four, "Roboto", sans-serif);
+}
+
+/* ── Panneau géographique ───────────────────────────────────────── */
+.geo-panel {
+    background: linear-gradient(135deg, #1a2a1a 0%, #2d4a2d 100%);
+    border-radius: 16px;
+    padding: 40px 32px;
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.geo-panel-bg {
+    position: absolute;
+    inset: 0;
+    opacity: 0.07;
+    background-image: url('../images/destination/20.webp');
+    background-size: cover;
+    background-position: center;
+    pointer-events: none;
+}
+.geo-panel-icon {
+    font-size: 3.5rem;
+    color: rgba(186, 104, 39, 0.8);
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 1;
+}
+.geo-panel h4 {
+    font-family: var(--font-primary, "Bebas Neue", sans-serif);
+    font-size: 1.4rem;
+    font-weight: 400;
+    margin-bottom: 6px;
+    position: relative;
+    z-index: 1;
+    letter-spacing: 0.02em;
+}
+.geo-panel p {
+    opacity: 0.75;
+    font-size: 0.9rem;
+    max-width: 280px;
+    position: relative;
+    z-index: 1;
+    line-height: 1.6;
+    margin-bottom: 32px;
+    font-family: var(--font-four, "Roboto", sans-serif);
+}
+.geo-borders {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+}
+.geo-border-item {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 14px 12px;
+    font-size: 0.82rem;
+    font-family: var(--font-four, "Roboto", sans-serif);
+}
+.geo-border-item strong {
+    color: var(--color-primary, #BA6827);
+    display: block;
+    font-size: 0.95rem;
+    margin-bottom: 3px;
+}
+
+/* ── Puces géographiques (tags informations) ────────────────────── */
+.geo-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 28px;
+}
+.geo-tag {
+    background: rgba(186, 104, 39, 0.1);
+    border-radius: 8px;
+    padding: 10px 16px;
+    font-size: 0.85rem;
+    color: #555;
+    font-family: var(--font-four, "Roboto", sans-serif);
+}
+.geo-tag i {
+    color: var(--color-primary, #BA6827);
+    margin-right: 6px;
+}
+
+/* ── CTA final ──────────────────────────────────────────────────── */
+.final-cta {
+    background: linear-gradient(135deg, #1a2a1a 0%, #2d4a2d 60%, #1a2a1a 100%);
+    padding: 100px 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+.final-cta-bg {
+    position: absolute;
+    inset: 0;
+    opacity: 0.06;
+    background-image: url('../images/destination/11.webp');
+    background-size: cover;
+    background-position: center;
+    pointer-events: none;
+}
+.final-cta-inner {
+    position: relative;
+    z-index: 2;
+}
+.final-cta-kicker {
+    color: rgba(255, 255, 255, 0.6);
+    font-family: var(--font-four, "Roboto", sans-serif);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-weight: 600;
+    margin-bottom: 16px;
+    display: block;
+}
+.final-cta h2 {
+    color: #fff;
+    font-family: var(--font-primary, "Bebas Neue", sans-serif);
+    font-size: clamp(1.8rem, 4vw, 3rem);
+    font-weight: 400;
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+    margin-bottom: 20px;
+}
+.final-cta-desc {
+    color: rgba(255, 255, 255, 0.75);
+    max-width: 560px;
+    margin: 0 auto 36px;
+    font-size: 1rem;
+    line-height: 1.7;
+    font-family: var(--font-four, "Roboto", sans-serif);
+}
+.final-cta-contact {
+    color: rgba(255, 255, 255, 0.45);
+    margin-top: 24px;
+    font-size: 0.85rem;
+    font-family: var(--font-four, "Roboto", sans-serif);
+}
+.final-cta-contact i { margin-right: 6px; }
+
+/* ── Utilitaires ────────────────────────────────────────────────── */
+.desc-center { max-width: 640px; margin-left: auto; margin-right: auto; }
+.about-bottom-area { margin-top: 24px; }
+
+/* Centrage automatique des descriptions dans les blocs de titre centrés */
+.section-title-area.text-center .desc {
+    max-width: 640px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Classe background spécifique au CTA intermédiaire de la page Namibie */
+.cta-band-namibie {
+    background-image: url('../images/cta/sorri-sorris.jpg');
+}
+
+/* Style du petit texte dans les cartes saisons */
+.requirement-card h5 small {
+    font-weight: 400;
+    font-size: 0.83rem;
+    color: var(--color-primary, #BA6827);
+    display: block;
+    margin-top: 2px;
+}
+
+/* ── Nav menu — Sunsive / font-secondary ────────────────────────── */
+.main-nav-area ul.rts-desktop-menu .menu-item .rts-dropdown-main-element,
+.main-nav-area ul.rts-desktop-menu .menu-item .main-element {
+    font-family: var(--font-secondary, "Sunsive", sans-serif) !important;
+    letter-spacing: 0.01em;
+}
