@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 const info = [
   { label: "Superficie", value: "26,338 km2" },
@@ -16,15 +17,24 @@ const reasons = [
 export default function RwandaPage() {
   return (
     <main>
-      <section className="bg-muted px-6 py-24 md:py-32">
-        <div className="container-x">
-          <p className="text-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+      <section className="relative overflow-hidden px-6 py-28 text-white md:py-40">
+        <Image
+          src="/assets/images/destination/23.webp"
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover"
+        />
+        <div className="absolute inset-0 bg-black/55" />
+        <div className="container-x relative">
+          <p className="text-sm font-semibold uppercase tracking-[0.18em] text-white/75">
             Destination
           </p>
           <h1 className="mt-3 text-4xl font-bold uppercase md:text-6xl">
             Rwanda
           </h1>
-          <p className="mt-6 max-w-3xl text-lg leading-8 text-muted-foreground">
+          <p className="mt-6 max-w-3xl text-lg leading-8 text-white/85">
             Le pays des mille collines, connu pour ses gorilles de montagne,
             ses forets luxuriantes et son sens remarquable de l'accueil.
           </p>
