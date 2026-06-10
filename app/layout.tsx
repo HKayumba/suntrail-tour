@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
+// @ts-ignore
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import ChunkLoadRecovery from "@/components/layout/ChunkLoadRecovery";
+import LegacyBackgrounds from "@/components/layout/LegacyBackgrounds";
 import LegacyScripts from "@/components/layout/LegacyScripts";
 import PageChrome from "@/components/layout/PageChrome";
 
@@ -116,6 +118,7 @@ export default function RootLayout({
         <ChunkLoadRecovery />
         <Header />
         {children}
+        <LegacyBackgrounds />
         <PageChrome />
         <LegacyScripts />
       </body>

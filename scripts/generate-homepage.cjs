@@ -14,6 +14,10 @@ if (!bodyMatch) {
 
 let body = bodyMatch[1].trim();
 
+body = body
+  .replace(/\b(src|href|data-bg-src)=["']assets\//g, '$1="/assets/')
+  .replace(/url\(["']?assets\//g, 'url("/assets/');
+
 body = body.replace(
   /\s*<script\s+src="https:\/\/elfsightcdn\.com\/platform\.js"\s+async><\/script>/i,
   "",
@@ -25,7 +29,7 @@ body = body.replace(
 );
 
 body = body.replace(
-  /\s*<!-- jquery js -->[\s\S]*?<script defer src="assets\/js\/main\.js"><\/script>\s*$/i,
+  /\s*<!-- jquery js -->[\s\S]*?<script defer src="\/assets\/js\/main\.js"><\/script>\s*$/i,
   "",
 );
 

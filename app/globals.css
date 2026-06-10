@@ -137,7 +137,6 @@ body {
 }
 
 
-{/* Utilities */}
 @layer utilities {
     .container-x {
     max-width: 1280px;
