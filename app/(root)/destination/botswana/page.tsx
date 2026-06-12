@@ -10,7 +10,7 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import { ArrowRight, Check, CheckCircle, ImageMinus, MapPin, Phone, Sailboat } from "lucide-react";
-import { chooseReasons, circuits, sites, uniqueness } from "@/data/botswana";
+import { chooseReasons, circuits, info, sites, uniqueness } from "@/data/botswana";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import Autoplay from "embla-carousel-autoplay";
@@ -60,8 +60,21 @@ export default function BotswanaPage() {
       </section>
 
       {/* Info */}
-      <section className="">
-        <div className="container-x"></div>
+      <section className="bg-[#BA6827]">
+        <div className="container-x">
+          <div className="relative z-20 -mt-px">
+            <div className="mx-auto grid grid-cols-2 divide-x divide-[oklch(1_0_0/0.12)] md:grid-cols-4">
+              {info.map((item) => (
+                <div key={item.label} className="px-5 py-7 text-center sm:px-8">
+                  <span className="text-[11px] md:text-[12px] uppercase text-[#FFF8F1]">{item.label}</span> <br />
+                  <span className="mt-2 font-display md:text-4xl text-[oklch(0.97_0.01_90)] sm:text-3xl">
+                    {item.value}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
       </section>
 
       {/* About Botswana */}
