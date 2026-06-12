@@ -117,7 +117,7 @@ const RainDots = ({ level }: { level: number }) => (
     {[1, 2, 3, 4, 5].map((i) => (
       <Droplets
         key={i}
-        className={`w-3 h-3 transition-all duration-300 ${i <= level ? "text-blue-400 opacity-100" : "text-white/20 opacity-40"}`}
+        className={`w-4 h-4 transition-all duration-300 ${i <= level ? "text-white opacity-100" : "text-white/20 opacity-40"}`}
       />
     ))}
   </div>
@@ -128,7 +128,7 @@ const StarRating = ({ rating }: { rating: number }) => (
     {[1, 2, 3, 4, 5].map((i) => (
       <Star
         key={i}
-        className={`w-3.5 h-3.5 ${i <= rating ? "text-primary fill-primary" : "text-white/20"}`}
+        className={`w-3.5 h-3.5 ${i <= rating ? "text-white fill-white" : "text-white/20"}`}
       />
     ))}
   </div>
@@ -156,16 +156,17 @@ export default function Bostwana() {
             <button
               key={m.short}
               onClick={() => setActiveSeason(m.season)}
+              style={m.season === activeSeason ? { backgroundColor: "#BA6827" } : undefined}
               className={`relative py-2.5 text-[10px] font-body font-bold uppercase tracking-wider rounded-sm transition-all duration-300 cursor-pointer ${
                 m.season === activeSeason
-                  ? "bg-primary text-primary-foreground shadow-md"
+                  ? "bg-[#BA6827] text-white shadow-md"
                   : "bg-card border border-border/60 text-muted-foreground hover:bg-muted"
               }`}
             >
               {m.short}
               {/* Active underline */}
               {m.season === activeSeason && (
-                <span className="absolute bottom-0.5 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-primary-foreground/60" />
+                <span className="absolute bottom-0.5 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-[#BA6827]" />
               )}
             </button>
           ))}
@@ -185,7 +186,7 @@ export default function Bostwana() {
             <div className={`absolute inset-0 bg-gradient-to-br ${season.bgGradient} pointer-events-none`} />
 
             {season.featured && (
-              <div className="absolute top-4 right-4 z-10 px-3 py-1.5 text-[9px] font-body font-bold uppercase tracking-[0.2em] bg-primary text-primary-foreground rounded-sm">
+              <div className="absolute top-4 right-4 z-10 px-3 py-1.5 text-[9px] font-body font-bold uppercase tracking-[0.2em] bg-[#BA6827] text-white rounded-sm">
                 ★ Top safari
               </div>
             )}
@@ -193,9 +194,9 @@ export default function Bostwana() {
             <div className="relative z-10 grid md:grid-cols-[1.2fr_1fr_1fr] gap-0">
 
               {/* LEFT — Main weather display */}
-              <div className="p-8 md:p-10 flex flex-col justify-between border-r border-secondary-foreground/10">
+              <div className="p-8 md:p-10 flex flex-col justify-between border-r border-white">
                 <div>
-                  <p className="text-[10px] font-body font-semibold uppercase tracking-[0.22em] text-secondary-foreground/50">
+                  <p className="text-[10px] font-body font-semibold uppercase tracking-[0.22em] text-white">
                     {season.period}
                   </p>
                   <div className="mt-4 flex items-start gap-4">
@@ -204,30 +205,30 @@ export default function Bostwana() {
                       style={{ color: season.accentColor }}
                     />
                     <div>
-                      <p className="font-display text-5xl md:text-6xl font-light text-secondary-foreground leading-none">
+                      <p className="font-display text-5xl md:text-6xl font-light text-white leading-none">
                         {season.tempHigh}
                       </p>
-                      <p className="mt-1 font-body text-sm text-secondary-foreground/50">
+                      <p className="mt-1 font-body text-sm text-white">
                         min {season.tempLow}
                       </p>
                     </div>
                   </div>
-                  <p className="mt-5 font-display text-2xl font-light text-secondary-foreground">
+                  <p className="mt-5 font-display text-2xl font-light text-white">
                     {season.title}
                   </p>
-                  <p className="mt-1 font-body text-xs text-secondary-foreground/60">
+                  <p className="mt-1 font-body text-xs text-white">
                     {season.weatherLabel}
                   </p>
                 </div>
 
                 {/* Rating */}
                 <div className="mt-8 pt-6 border-t border-secondary-foreground/10">
-                  <p className="text-[9px] font-body font-semibold uppercase tracking-[0.2em] text-secondary-foreground/40 mb-2">
+                  <p className="text-[9px] font-body font-semibold uppercase tracking-[0.2em] text-white mb-2">
                     Période safari
                   </p>
                   <div className="flex items-center gap-3">
                     <StarRating rating={season.rating} />
-                    <span className="font-body text-sm font-semibold" style={{ color: season.accentColor }}>
+                    <span className="font-body text-md font-semibold" style={{ color: season.accentColor }}>
                       {season.ratingLabel}
                     </span>
                   </div>
@@ -236,20 +237,20 @@ export default function Bostwana() {
 
               {/* MIDDLE — Climate metrics */}
               <div className="p-8 md:p-10 border-r border-secondary-foreground/10">
-                <p className="text-[9px] font-body font-semibold uppercase tracking-[0.22em] text-secondary-foreground/40 mb-6">
+                <p className="text-[9px] font-body font-semibold uppercase tracking-[0.22em] text-white mb-6">
                   Conditions
                 </p>
 
                 {/* Temp bar */}
                 <div className="mb-5">
                   <div className="flex justify-between items-center mb-2">
-                    <span className="flex items-center gap-1.5 text-xs font-body text-secondary-foreground/60">
-                      <Thermometer className="w-3.5 h-3.5" />
+                    <span className="flex items-center gap-1.5 text-md font-body text-white">
+                      <Thermometer className="w-5 h-5" />
                       Température
                     </span>
-                    <span className="text-xs font-body font-semibold text-secondary-foreground/80">{season.tempHigh}</span>
+                    <span className="text-md font-body font-semibold text-white">{season.tempHigh}</span>
                   </div>
-                  <div className="h-1.5 rounded-full bg-secondary-foreground/10 overflow-hidden">
+                  <div className="h-1.5 rounded-full bg-white overflow-hidden">
                     <motion.div
                       initial={{ width: 0 }}
                       animate={{ width: `${season.tempBar}%` }}
@@ -263,11 +264,11 @@ export default function Bostwana() {
                 {/* Rain */}
                 <div className="mb-5">
                   <div className="flex justify-between items-center mb-2">
-                    <span className="flex items-center gap-1.5 text-xs font-body text-secondary-foreground/60">
-                      <CloudRain className="w-3.5 h-3.5" />
+                    <span className="flex items-center gap-1.5 text-md font-body text-white">
+                      <CloudRain className="w-5 h-5" />
                       Précipitations
                     </span>
-                    <span className="text-xs font-body font-semibold text-secondary-foreground/80">{season.rain}</span>
+                    <span className="text-md font-body font-semibold text-white">{season.rain}</span>
                   </div>
                   <RainDots level={season.rainLevel} />
                 </div>
@@ -275,30 +276,30 @@ export default function Bostwana() {
                 {/* Humidity */}
                 <div className="mb-5">
                   <div className="flex justify-between items-center mb-1">
-                    <span className="flex items-center gap-1.5 text-xs font-body text-secondary-foreground/60">
-                      <Droplets className="w-3.5 h-3.5" />
+                    <span className="flex items-center gap-1.5 text-md font-body text-white">
+                      <Droplets className="w-5 h-5" />
                       Humidité
                     </span>
-                    <span className="text-xs font-body font-semibold text-secondary-foreground/80">{season.humidity}</span>
+                    <span className="text-md font-body font-semibold text-white">{season.humidity}</span>
                   </div>
                 </div>
 
                 {/* Crowd */}
                 <div className="mb-6">
                   <div className="flex justify-between items-center mb-1">
-                    <span className="flex items-center gap-1.5 text-xs font-body text-secondary-foreground/60">
-                      <Eye className="w-3.5 h-3.5" />
+                    <span className="flex items-center gap-1.5 text-md font-body text-white">
+                      <Eye className="w-5 h-5" />
                       Fréquentation
                     </span>
-                    <span className="text-xs font-body font-semibold text-secondary-foreground/80">{season.crowd}</span>
+                    <span className="text-md font-body font-semibold text-white">{season.crowd}</span>
                   </div>
                 </div>
 
                 {/* Wind */}
                 <div className="pt-5 border-t border-secondary-foreground/10">
                   <div className="flex items-center gap-1.5">
-                    <Wind className="w-3.5 h-3.5 text-secondary-foreground/40" />
-                    <span className="text-xs font-body text-secondary-foreground/50">
+                    <Wind className="w-5 h-5 text-white" />
+                    <span className="text-[12px] font-body text-white">
                       {season.id === 0 || season.id === 1 ? "Vents chauds du nord" : "Vents froids nocturnes"}
                     </span>
                   </div>
@@ -307,7 +308,7 @@ export default function Bostwana() {
 
               {/* RIGHT — Highlights + description */}
               <div className="p-8 md:p-10 flex flex-col">
-                <p className="text-[9px] font-body font-semibold uppercase tracking-[0.22em] text-secondary-foreground/40 mb-6">
+                <p className="text-[9px] font-body font-semibold uppercase tracking-[0.22em] text-white mb-6">
                   À ne pas manquer
                 </p>
 
@@ -317,18 +318,18 @@ export default function Bostwana() {
                     return (
                       <div key={h} className="flex items-center gap-3">
                         <div
-                          className="w-7 h-7 rounded-sm flex items-center justify-center flex-shrink-0"
+                          className="w-10 h-10 rounded-sm flex items-center justify-center flex-shrink-0"
                           style={{ backgroundColor: `${season.accentColor}20` }}
                         >
-                          <Icon className="w-3.5 h-3.5" style={{ color: season.accentColor }} />
+                          <Icon className="w-5 h-5" style={{ color: season.accentColor }} />
                         </div>
-                        <span className="font-body text-xs text-secondary-foreground/75">{h}</span>
+                        <p className="text-sm text-white">{h}</p>
                       </div>
                     );
                   })}
                 </div>
 
-                <p className="mt-8 pt-5 border-t border-secondary-foreground/10 font-body text-xs leading-[1.8] text-secondary-foreground/55">
+                <p className="mt-8 pt-5 border-t border-secondary-foreground/10 font-body text-xs leading-[1.8] text-white">
                   {season.text}
                 </p>
               </div>
@@ -351,13 +352,13 @@ export default function Bostwana() {
                 }`}
               >
                 <Icon
-                  className="w-4 h-4 flex-shrink-0"
+                  className="w-13 h-13 flex-shrink-0"
                   style={{ color: activeSeason === i ? s.accentColor : undefined }}
                 />
                 <div>
-                  <p className={`text-[10px] font-body font-bold uppercase tracking-[0.12em] ${activeSeason === i ? "text-primary" : "text-muted-foreground"}`}>
+                  <span className={`text-[20px] font-bold uppercase tracking-[0.12em] ${activeSeason === i ? "text-primary" : "text-muted-foreground"}`}>
                     {s.period}
-                  </p>
+                  </span>
                   <p className="text-[10px] font-body text-muted-foreground">{s.title}</p>
                 </div>
               </button>
