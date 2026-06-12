@@ -97,10 +97,9 @@ export default function BotswanaPage() {
 
                 <Link
                   href="tel:+26771234567"
-                  className="inline-flex items-center gap-2 rts-btn btn-primary leading-none"
+                  className="gap-2 rts-btn btn-primary leading-none"
                 >
-                  <Phone className="h-5 w-5 shrink-0" />
-                  <span className="leading-none">(+267) 71 234 567</span>
+                  <Phone className="h-5 w-5 shrink-0" /> <span className="leading-none">(+267) 71 234 567</span>
                 </Link>
               </div>
             </div>
